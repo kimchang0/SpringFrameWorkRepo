@@ -11,7 +11,7 @@
 	<div>
 	
 		<%@ include file="/WEB-INF/view/myOrder/myOrderTop.jsp" %>
-		
+				
 	</div>
 	<!-- top end -->
 </body>
