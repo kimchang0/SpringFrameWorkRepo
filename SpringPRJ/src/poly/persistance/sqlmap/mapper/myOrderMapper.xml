@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IMyOrderMapper">
+<select id="getMyOrderList" parameterType="myOrderDTO" resultType="myOrderDTO">
+	SELECT
+		USER_MENU,
+		USER_PRICE,
+		USER_ODT
+	FROM
+		 MYORDER_ORDERLIST
+	WHERE
+		USER_ID = #{user_id} AND USER_NAME = #{user_name}
+</select>
+<select id="getUserInfo" parameterType="myOrderDTO" resultType="myOrderDTO">
+	SELECT
+		USER_ID,
+		USER_PWD,
+		USER_NAME
+	FROM
+		MYORDER_USER
+	WHERE USER_ID = #{user_id} AND USER_PWD = #{user_pwd}
+</select>
+<insert id="userSignUp" parameterType="myOrderDTO">
+INSERT INTO MYORDER_USER(
+	USER_NO, 
+	USER_ID, 
+	USER_PWD, 
+	USER_NAME
+)VALUES(
+	USER_SEQ.NEXTVAL, 
+	#{user_id}, 
+	#{user_pwd}, 
+	#{user_name}
+)
+</insert>
+
+
+
+
+
+
+
+</mapper>
+
+
+
